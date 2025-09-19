@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climbr - AI Career Companion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon"></span>
+      <h1>Climbr</h1>
+      <span class="badge">AI-Powered</span>
+    </div>
+    <div class="user-info">👋 Welcome back, <strong>Athwika</strong></div>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <button class="nav-btn active" data-tab="dashboard" onclick="switchTab('dashboard')">📊 Dashboard</button>
+      <button class="nav-btn" data-tab="roadmap" onclick="switchTab('roadmap')">🎯 Career Roadmap</button>
+      <button class="nav-btn" data-tab="applications" onclick="switchTab('applications')">📄 Job Applications</button>
+      <button class="nav-btn" data-tab="focus" onclick="switchTab('focus')">⏰ Focus Timer</button>
+      <button class="nav-btn" data-tab="api-docs" onclick="switchTab('api-docs')">🔌 API Docs</button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Dashboard -->
+      <section id="dashboard" class="tab-content">
+        <h2 class="section-title">Career Dashboard</h2>
+        <div class="stats-grid">
+          <div class="stat-card blue">
+            <div>
+              <p class="stat-label">Active Goals</p>
+              <p class="stat-number" id="goals-count">-</p>
+              <div class="progress-bar"><span style="width:60%"></span></div>
+            </div>
+            <span class="stat-icon">🎯</span>
+          </div>
+
+          <div class="stat-card green">
+            <div>
+              <p class="stat-label">Focus Hours</p>
+              <p class="stat-number" id="focus-hours">-</p>
+              <div class="progress-bar"><span style="width:40%"></span></div>
+            </div>
+            <span class="stat-icon">⏰</span>
+          </div>
+
+          <div class="stat-card purple">
+            <div>
+              <p class="stat-label">Applications</p>
+              <p class="stat-number" id="applications-count">-</p>
+              <div class="progress-bar"><span style="width:30%"></span></div>
+            </div>
+            <span class="stat-icon">📄</span>
+          </div>
+
+          <div class="stat-card orange">
+            <div>
+              <p class="stat-label">Success Rate</p>
+              <p class="stat-number">87%</p>
+              <p class="stat-sub">API responses</p>
+            </div>
+            <span class="stat-icon">📈</span>
+          </div>
+        </div>
+        <button class="btn btn-secondary" onclick="loadDashboard()">🔄 Refresh Dashboard</button>
+      </section>
+
+      <!-- Roadmap -->
+      <!-- Roadmap -->
+<section id="roadmap" class="tab-content hidden">
+  <h2 class="section-title">🎯 AI Career Roadmap Generator</h2>
+
+  <div class="roadmap-box">
+    <input type="text" id="goal" class="input-field goal-input" placeholder="Your dream career goal...">
+    <button class="btn btn-primary" onclick="generateRoadmap()">🚀 Generate Roadmap</button>
+  </div>
+
+  <div id="roadmap-result" class="roadmap-result"></div>
+</section>
+
+
+      <!-- Applications -->
+      <!-- Applications -->
+<section id="applications" class="tab-content hidden">
+  <h2 class="section-title">📄 Job Application Copilot</h2>
+
+  <div class="app-inputs">
+    <div class="upload-box" onclick="document.getElementById('resume-file').click()">
+      <p>📤 <strong>Upload Resume</strong></p>
+      <p class="hint">Drag & drop or click to browse</p>
+      <input type="file" id="resume-file" accept=".pdf,.doc,.docx" hidden>
+    </div>
+
+    <div class="jd-box">
+      <label for="job-desc">Job Description</label>
+      <textarea id="job-desc" class="input-field" rows="10" placeholder="Paste the job description here..."></textarea>
+    </div>
+  </div>
+
+  <div class="app-buttons">
+    <button class="btn btn-primary" onclick="generateApplication()">🤖 Generate Application</button>
+    <button class="btn btn-secondary" onclick="downloadApplication()">⬇ Download PDF</button>
+  </div>
+
+  <div id="application-result"></div>
+</section>
+
+         
+
+      <!-- Focus Timer -->
+      <section id="focus" class="tab-content hidden">
+        <h2 class="section-title">⏰ Focus Timer</h2>
+        <div id="timer-display">00:00</div>
+        <div class="timer-controls">
+          <button class="btn btn-green" id="start-btn">▶ Start</button>
+          <button class="btn btn-red hidden" id="pause-btn">⏸ Pause</button>
+          <button class="btn btn-red hidden" id="stop-btn">⏹ Stop</button>
+          <button class="btn btn-secondary" id="reset-btn">🔄 Reset</button>
+        </div>
+        <div id="focus-sessions"></div>
+      </section>
+
+      <!-- API Docs -->
+      <!-- API Docs -->
+<section id="api-docs" class="tab-content hidden">
+  <h2 class="section-title">🔌 API Documentation</h2>
+
+  <div class="api-docs">
+    <div class="api-card">
+      <h3>Career Roadmap API</h3>
+      <code>POST /api/v1/roadmap/generate</code>
+      <p>Generates a career roadmap with skills and projects.</p>
+    </div>
+
+    <div class="api-card">
+      <h3>Job Application API</h3>
+      <code>POST /api/v1/applications/generate</code>
+      <p>Creates a tailored resume and cover letter from job description.</p>
+    </div>
+
+    <div class="api-card">
+      <h3>Download Application PDF</h3>
+      <code>GET /api/v1/applications/download</code>
+      <p>Downloads the generated resume + cover letter as a PDF.</p>
+    </div>
+
+    <div class="api-card">
+      <h3>Focus Sessions</h3>
+      <code>POST /api/v1/focus/sessions</code>
+      <p>Saves a focus session (duration, notes).</p>
+    </div>
+
+    <div class="api-card">
+      <h3>Dashboard Analytics</h3>
+      <code>GET /api/v1/analytics/dashboard</code>
+      <p>Fetches career dashboard stats (goals, applications, hours).</p>
+    </div>
+  </div>
+</section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

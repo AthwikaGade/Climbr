@@ -1,0 +1,363 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo h1 { margin: 0; font-size: 1.5rem; }
+.badge {
+  background: #22c55e;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+/* Layout */
+.container {
+  display: flex;
+}
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+.nav-btn {
+  width: 100%;
+  display: block;
+  padding: 0.8rem;
+  margin: 0.4rem 0;
+  text-align: left;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  background: #f3f4f6;
+  transition: all 0.3s ease;
+}
+.nav-btn.active,
+.nav-btn:hover {
+  background: #6366f1;
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.stat-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+.stat-icon { font-size: 2rem; }
+.progress-bar {
+  margin-top: 0.5rem;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+}
+
+/* Roadmap */
+#roadmap-result {
+  margin-top: 1.5rem;
+}
+.roadmap-phase {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border-left: 6px solid #6366f1;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Applications */
+/* Applications Section */
+.app-inputs {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.upload-box {
+  border: 2px dashed #6366f1;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.upload-box:hover {
+  background: #eef2ff;
+  transform: scale(1.02);
+}
+.upload-box .hint {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.jd-box textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.app-buttons {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Result Cards */
+#application-result > div {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  animation: fadeInUp 0.6s ease;
+}
+#application-result strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4f46e5;
+  font-size: 1rem;
+}
+
+
+/* Focus Timer */
+#timer-display {
+  width: 160px;
+  height: 160px;
+  margin: 1rem auto;
+  border-radius: 50%;
+  background: conic-gradient(#4f46e5 0deg, #e5e7eb 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+.hidden { display: none; }
+#focus-sessions p {
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.8rem;
+}
+.btn-primary {
+  background: #6366f1;
+  color: #fff;
+}
+.btn-secondary {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+.btn-green {
+  background: #22c55e;
+  color: #fff;
+}
+.btn-red {
+  background: #ef4444;
+  color: #fff;
+}
+/* Roadmap Timeline */
+#roadmap-result h3 {
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.roadmap-phase {
+  background: #fff;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #6366f1;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  animation: fadeInUp 0.6s ease;
+}
+
+.roadmap-phase h4 {
+  margin: 0 0 0.5rem 0;
+  color: #4f46e5;
+}
+
+.roadmap-phase h5 {
+  margin: 0.8rem 0 0.3rem 0;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.roadmap-phase ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.roadmap-phase li {
+  margin: 0.3rem 0;
+  line-height: 1.4;
+  color: #111827;
+}
+
+.roadmap-phase p {
+  margin: 0.4rem 0;
+  color: #374151;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.api-docs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.api-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+.api-card:hover {
+  transform: translateY(-4px);
+}
+.api-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #4f46e5;
+}
+.api-card code {
+  display: block;
+  background: #f3f4f6;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  margin: 0.4rem 0;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+.api-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+/* Roadmap Section */
+.roadmap-box {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.goal-input {
+  flex: 1;
+  max-width: 400px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+}
+
+.roadmap-result {
+  margin-top: 1rem;
+}
+
+/* Timeline Style */
+.roadmap-phase {
+  position: relative;
+  background: #fff;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  margin: 1.2rem 0;
+  border-left: 6px solid #6366f1;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  animation: fadeInUp 0.6s ease;
+}
+
+.roadmap-phase::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 1.2rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #6366f1;
+}
+
+.roadmap-phase h4 {
+  margin: 0 0 0.5rem 0;
+  color: #4f46e5;
+}
+
+.roadmap-phase ul {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.roadmap-phase li {
+  margin: 0.4rem 0;
+  color: #374151;
+}
