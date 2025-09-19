@@ -19,7 +19,7 @@ Climbr is an AI-powered web app that helps early-career individuals:
 ---
 
 ## 🎥 Demo Video
-👉 [Link to Demo Video](https://your-video-link.com)  
+👉 [Link to Demo Video]([https://your-video-link.com](https://youtu.be/x3yQLxf3SMM?si=_TmMBLuF5uLipa5p))  
 
 ---
 
